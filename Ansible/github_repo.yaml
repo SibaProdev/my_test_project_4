@@ -1,0 +1,12 @@
+---
+- name: Create a new GitHub Repository
+  hosts: localhost
+  remote_user: siba
+  become: true
+  vars_files:
+    - password.yaml
+  roles:
+    - github
+  tasks:
+    - name: ping the localhost 
+      ping:

@@ -1,0 +1,4 @@
+---
+# tasks file for github
+- name: A new repo from scratch
+  include_tasks: github_repo.yaml

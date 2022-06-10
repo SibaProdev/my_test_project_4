@@ -1,0 +1,16 @@
+{
+    "ansibleServer.trace.server": "verbose",
+    "editor.fontSize": 14,
+    "editor.tabSize": 2,
+    "editor.renderWhitespace": "all",
+    "editor.cursorStyle": "block",
+    "yaml.schemas": {
+        "https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible.json#/$defs/playbook": "file:///Users/siba/my_test_project_4/Ansible/playbook.yml"
+    },
+    "python.testing.pytestArgs": [
+        "Python"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "redhat.telemetry.enabled": true
+}

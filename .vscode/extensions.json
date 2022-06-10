@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+        "redhat.ansible",
+        "ms-azuretools.vscode-docker",
+        "4ops.packer",
+        "redhat.vscode-commons",
+        "redhat.vscode-extension-red-hat-business-automation-bundle",
+        "redhat.vscode-extension-dmn-editor",
+        "redhat.vscode-extension-bpmn-editor"
+    ]
+}

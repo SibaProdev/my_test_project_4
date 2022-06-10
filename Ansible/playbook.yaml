@@ -1,0 +1,16 @@
+---
+- name: test play
+  hosts: localhost
+  tasks:
+    - name: Print the msg
+      ansible.builtin.debug:
+        msg: "Hell World"
+    - name: Create User
+      ansible.builtin.user:
+        name: user1
+        state: present
+      register: user_name
+    - name: list the user
+      ansible.builtin.debug:
+        msg: "{{ user_name.stdout_lines }}"
+...

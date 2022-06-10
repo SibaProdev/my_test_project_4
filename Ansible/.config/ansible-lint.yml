@@ -1,0 +1,11 @@
+#warn_list:  # or 'skip_list' to silence them completely
+skip_list:
+  - fqcn-builtins  # Use FQCN for builtin actions.
+  - yamllint. # Violations reported by yamllint.
+  - yaml
+  - command-instead-of-module  # Using command rather than module.
+  - command-instead-of-shell  # Use shell only when shell functionality is required.
+  - experimental  # all rules tagged as experimental
+  - meta-incorrect  # meta/main.yml default values should be changed.
+  - meta-no-info  # meta/main.yml should contain relevant info.
+  - no-changed-when  # Commands should not change things if nothing needs doing.

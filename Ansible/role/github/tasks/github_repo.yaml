@@ -1,0 +1,77 @@
+---
+- name: Create a directory to contain the project.
+  file:
+    path: /Users/siba/Ansible_Project
+    owner: siba
+    group: staff
+    mode: '0775'
+    state: directory
+
+- name: Create github Repository
+  shell: "git init ."
+  args:
+    chdir: /Users/siba/Ansible_Project
+
+#- name: Create the Ansible role
+#  shell: "ansible-galaxy role init user"
+#  args:
+#    chdir: /Users/siba/Ansible_Project
+#    executable: /bin/bash
+
+- name: Create ansible.cfg and inventory file
+  file:
+    path: "{{ item }}"
+    owner: siba
+    group: staff
+    mode: '0664'
+    state: touch
+  loop:
+    - /Users/siba/Ansible_Project/ansible.cfg
+    - /Users/siba/Ansible_Project/inventory
+
+- name: Write the conntent
+  copy:
+    content: |
+      [defaults]
+      inventory = inventory
+    dest: /Users/siba/Ansible_Project/ansible.cfg
+
+- name: write Invenrtoy 
+  copy:
+    content: |
+      localhost
+    dest: /Users/siba/Ansible_Project/inventory
+
+- name: Add the Safe directory
+  shell: "git config --global --add safe.directory /Users/siba/Ansible_Project"
+  args:
+    chdir: /Users/siba/Ansible_Project
+    executable: /bin/bash
+
+- name: Create the Git Branch
+  shell: "git checkout -b Test"
+  args:
+    chdir: /Users/siba/Ansible_Project/
+  ignore_errors: true
+
+- name: Git Add
+  shell: "git add ."
+  args:
+    chdir: /Users/siba/Ansible_Project/
+
+- name: Git Commit
+  shell: 'git commit -m "added new code"'
+  args:
+    chdir: /Users/siba/Ansible_Project/
+  ignore_errors: true
+
+
+- name: Add the Repository to GitHub
+  shell: "git remote add origin git@github.com:sibreddy/Ansible_Project"
+  args:
+    chdir: /Users/siba/Ansible_Project/
+
+- name: Push the Repository to GitHub
+  shell: "git push -u origin Test"
+  args:
+    chdir: /Users/siba/Ansible_Project/
